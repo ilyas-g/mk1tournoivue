@@ -195,6 +195,17 @@ p {
   margin: 0 0 20px;
 }
 
+dl, ol, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 h1,
 h2,
 h3,
@@ -249,6 +260,33 @@ strong {
 
 .d-none {
   display: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.activeLang {
+  color: #ffd342;
+}
+/* --------------- */
+
+#event-section:before,
+#schedule-details::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, .5);
 }
 
 /* ----------- TABLE STYLE ------------*/

@@ -1,9 +1,9 @@
 <template>
 		<header className="header">
 			<div className="logo-header">
-				<!-- <Link to="/"> -->
+				<RouterLink to="/">
 					<img className="logo" :src="nsxcLogo" alt="NSXC" />
-				<!-- </Link> -->
+				</RouterLink>
 			</div>
 
 			<div class="responsive-menu-opener show-responsive-992">
