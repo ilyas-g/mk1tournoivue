@@ -20,8 +20,8 @@ import Footer from './components/footer/Footer.vue'
     </div>
   </header> -->
 
+  <RouterView />
   <Footer />
-  <!-- <RouterView /> -->
 </template>
 
 <style scoped>
