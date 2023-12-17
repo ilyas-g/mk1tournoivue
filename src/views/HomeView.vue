@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import TheWelcome from '../components/TheWelcome.vue'
 import SectionFirst from '../components/sectionFirst/SectionFirst.vue'
+import SectionSecond from '../components/sectionSecond/SectionSecond.vue'
+import SectionThird from '../components/sectionThird/SectionThird.vue'
+import SectionThirdBis from '../components/sectionThirdBis/SectionThirdBis.vue'
 import WhiteBar from '../components/whiteBar/WhiteBar.vue'
 </script>
 
@@ -9,6 +12,9 @@ import WhiteBar from '../components/whiteBar/WhiteBar.vue'
     <!-- <TheWelcome /> -->
     <SectionFirst />
     <WhiteBar />
+    <SectionSecond />
+    <SectionThird />
+    <SectionThirdBis />
 
     <!-- <h1>odjfhudsjkdjfkdshddjhsjkj</h1> -->
   </main>
