@@ -4,19 +4,19 @@
             <div className="container">
 
                 <ul className="footer-nav mb-4">
-                    <li><RouterLink to="/#event-section">{t('presentationTitle')}</RouterLink>
+                    <li><RouterLink to="/#event-section">Présentation</RouterLink>
                     </li>
-                    <li><RouterLink to="/#schedule">{t('stepsTitle')}</RouterLink>
+                    <li><RouterLink to="/#schedule">Étapes</RouterLink>
                     </li>
-                    <li><RouterLink to="/#tournaments">{t('tournamentsTitle')}</RouterLink>
+                    <li><RouterLink to="/#tournaments">Tournois</RouterLink>
                     </li>
                     <li onClick={funcContact}>Contact</li>
-                    <li onClick={funcClassement}>{t('rankingTitle')}</li>
+                    <li onClick={funcClassement}>Classement</li>
                 </ul>
 
                 <div>
                     <div className="follow-us">
-                        <h4 className="text-center">{t('followNSXC')}</h4>
+                        <h4 className="text-center">Suivez NSXC</h4>
                         <p className="text-center">
                             <a href="https://twitter.com/_NSxC" target="_blank" className="ml-1 mr-1" aria-label="Twitter NSxC"><span className="icon-square-twitter"></span></a>
                         </p>
@@ -24,7 +24,7 @@
                 </div>
                 <div>
                     <div className="follow-us">
-                        <h4 className="text-center">{t('followWBGames')}</h4>
+                        <h4 className="text-center">Suivez Warner Bros. Games France</h4>
                         <p className="text-center">
                             <a href="https://www.youtube.com/@warnerbros.gamesfrance1763" target="_blank" className="mr-1" aria-label="Chaîne Youtube de Warner Bros Games France"><span className="icon-youtube"></span></a>
                             <a href="https://twitter.com/wbgamesfr" target="_blank" className="ml-1 mr-1" aria-label="Twitter Warner Bros Games France"><span className="icon-square-twitter"></span></a>
@@ -34,7 +34,7 @@
                 </div>
                 <div>
                     <div className="follow-us">
-                        <h4 className="text-center">{t('followMKFrance')}</h4>
+                        <h4 className="text-center">Suivez MK France</h4>
                         <p className="text-center">
                             <a href="https://discord.gg/p5Ubc3r" target="_blank" className="ml-1" aria-label="Discord Mortal Kombat France"><span className="icon-discord-1"></span></a>
                             <a href="https://twitter.com/MK1_FRANCE" target="_blank" className="mr-1" aria-label="Twitter Mortal Kombat France"><span className="icon-square-twitter"></span></a>
@@ -50,8 +50,8 @@
             </div>
         </div>
         <div className="footer-credits">
-            Mortal Kombat - {t('footerChampionship')} © <a href="https://yuzugaming.com" target="_blank">Yuzu Gaming</a> - 
-            {t('websiteBy')} <a href="https://twitter.com/iamarktall" target="_blank">Arktall
+            Mortal Kombat - Championnat de France © <a href="https://yuzugaming.com" target="_blank">Yuzu Gaming</a> - 
+            Site conçu et réalisé par <a href="https://twitter.com/iamarktall" target="_blank">Arktall
                 (@iamarktall)</a>
         </div>
     </footer>

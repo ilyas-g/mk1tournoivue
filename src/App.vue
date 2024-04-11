@@ -24,7 +24,7 @@ import Footer from './components/footer/Footer.vue'
   <Footer />
 </template>
 
-<style scoped>
+<style lang="scss">
 @import './App.css';
 @import './_section.scss';
 
@@ -88,5 +88,7 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-} */
+}
+
+*/
 </style>

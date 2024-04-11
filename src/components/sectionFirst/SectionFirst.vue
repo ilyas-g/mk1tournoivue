@@ -9,12 +9,12 @@
                         <img :src="MK1Logo" alt="Logo Mortal Kombat 1" />
                     </div>
                     <div className="home-event-date">
-                        {t('championship')}
+                        Championnat de France
                     </div>
                     <div className="home-event-buttons">
-                        <a href="/#event-section" className="btn-ope">{t('presentationTitle')} <span className="icon-chevron-down-solid-1"></span></a>
-                        <a href="/#tournaments" className="btn-ope special">{t('tournamentsTitle')} <span className="icon-chevron-down-solid-1" aria-hidden="true"></span></a>
-                        <button className="btn-ope video btf-btn" onClick={func}>{t('watchTrailer')}</button>
+                        <a href="/#event-section" className="btn-ope">Présentation <span className="icon-chevron-down-solid-1"></span></a>
+                        <a href="/#tournaments" className="btn-ope special">Tournois <span className="icon-chevron-down-solid-1" aria-hidden="true"></span></a>
+                        <button className="btn-ope video btf-btn" onClick={func}>Voir le trailer</button>
                     </div>
                 </div>
             </div>
@@ -33,9 +33,9 @@ import videoBg from '../../assets/mkchampionshipvideo.mp4'
     // background-image: url('https://img.freepik.com/photos-premium/fond-abstrait-vague-blanche-fond-ecran-graphique-blanc-minimal-illustration-2d_67092-1294.jpg?w=2000');
     overflow: hidden;
 
-    .bg-layer {
-        height: 98%;
-    }
+    // .bg-layer {
+    //     height: 98%;
+    // }
 }
 
 .dark-section {

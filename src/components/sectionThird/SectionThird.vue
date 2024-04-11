@@ -2,14 +2,14 @@
     <section id="schedule" className="bg-fixed bg-cover">
         <div className="bg-layer"></div>
 
-        <h2 className="text-center relative-content">{t('stepsTitle')}</h2>
+        <h2 className="text-center relative-content">Étapes</h2>
         <div className="container relative-content">
 
             <div className="text-center">
                 <h2>Master Event +</h2>
-                <p className="master-plus">{t('masterEvent+')}</p>
-                {/* <a href="https://www.start.gg/tournament/paris-games-week-master-event/details" target="_blank" className="btn-ope masterEventPlus mt-5 mx-auto">{t('signup')}</a> */}
-                <RouterLink to="/rules" className="btn-ope special mt-3 mx-auto">{t('seeTheRules')}<span className="icon-chevron-down-solid-1" aria-hidden="true"></span></RouterLink>
+                <p className="master-plus">Le MASTER EVENT + est l'unique événement de sa catégorie. Une étape majeure du championnat qui donnera un avantage considérable dans le classement général.</p>
+                <!-- <a href="https://www.start.gg/tournament/paris-games-week-master-event/details" target="_blank" className="btn-ope masterEventPlus mt-5 mx-auto">{t('signup')}</a> -->
+                <RouterLink to="/rules" className="btn-ope special mt-3 mx-auto">Voir le règlement<span className="icon-chevron-down-solid-1" aria-hidden="true"></span></RouterLink>
             </div>
 
         </div>
@@ -27,11 +27,13 @@ export default {
     color: #fff;
     background-image: url("../../assets/1320684.webp");
     padding: 50px 135px;
-
+    min-height: 100vh;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    // position: relative;
 
     &::before {
         content: "";
