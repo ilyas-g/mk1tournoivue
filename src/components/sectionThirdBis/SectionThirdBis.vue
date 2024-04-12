@@ -8,9 +8,9 @@
                     <h2 className="text-center">Master Event</h2>
                     <p>Le Master Event est la deuxième catégorie d'événement du championnat. Une série de tournois hors ligne organisé par le NSxC et des associations de la communauté de jeux de combats.</p>
                 </div>
-                <!-- <div className="vertical-align-container order-1" :style="{ position: relative }">
+                <div className="vertical-align-container order-1" :style="{ position: relative }">
                     <AnimateImage />
-                </div> -->
+                </div>
                 <div className="text-center order-3">
                     <h2>Challenger Event</h2>
                     <p>Le challenger est la troisième catégorie d'évènement du championnat. Une série de tournois hors ligne organisée par le NSxC et des associations de la communauté de jeux de combats.</p>
@@ -50,7 +50,7 @@
     </section>
 </template>
 <script setup lang="ts">
-// import AnimateImage from "../animateImage/AnimateImage"
+import AnimateImage from "../animateImage/AnimateImage.vue"
 
 import ethernet from "../../assets/ethernet.webp"
 import drapeau from "../../assets/drapeauFR.webp"
