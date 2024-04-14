@@ -22,6 +22,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   const token = "4833c62c7d6ebbc8c956fae97fc5b4af";
+  // const token = import.meta.env.VITE_APP_TOKEN;
 
   return {
       headers: {

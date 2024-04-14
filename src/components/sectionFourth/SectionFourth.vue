@@ -7,7 +7,7 @@
                 <h3 className={`subtitle ${tournamentsCheck === false ? 'activeLang' : '' }`} onClick={() => setTournamentsCheck(false)}>{t('finishedTournaments')}</h3>
             </div> -->
 
-            <div className="tournaments">
+            <!-- <div className="tournaments">
                 <div className="cards inline-itemList show-on-scroll is-visible">
                     <Card
                     title="frfrf"
@@ -16,95 +16,51 @@
                     date="02/01/2020"
                     />
                 </div>
-            </div>
+            </div> -->
             <div v-if="loading"><Spinner/></div>
             <div v-else-if="error">{{ error.message }}</div>
-            <ul v-else-if="users">
-                <li v-for="user of users" :key="user.id">
-                {{ user.name }} - {{ user.slug }}
-                </li>
-            </ul>
+            <div className="tournaments" v-else-if="users">
+                <div className="cards inline-itemList show-on-scroll is-visible" v-for="event of users" :key="event.id">
+
+                    <Card
+                    :title=event.name
+                    :linkPhotos="btf2"
+                    :numAttendees=event.numEntrants
+                    :venueAddress=event.slug
+                    :date=datetime
+                    />
+
+                </div>
+            </div>
         </div>
     </section>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
+import btf1 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1010-SMALL.webp'
+import btf2 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1710-SMALL.webp'
+import btf3 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1411-SMALL.webp'
+import btf4 from '../../assets/tournamentsImg/MK-BTF-ONLINE-31-10-SMALL.webp'
+import btf5 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1212-SMALL.webp'
+import btf6 from '../../assets/tournamentsImg/MK-BTF-ONLINE-28-11-SMALL.webp'
+import pgw2023 from '../../assets/tournamentsImg/PGW-MASTER-EVENT+-SMALL.webp'
+import versusxperience from '../../assets/tournamentsImg/versusxperience.webp'
+
 import Spinner from '../spinner/Spinner.vue';
 import Card from '../card/Card.vue';
 import { watch, computed } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
-import gql from 'graphql-tag'
 import {CARD_QUERY} from "../../queries/queries"
 // import * as albums from "../../queries/data.json"
 
-
-export default {
-    setup () {
-        const { result, loading, error } = useQuery(gql`
-query LeagueStandings {
-  league(slug: "championnat-de-france-mortal-kombat-1-classement") {
-    id
-    name
-    videogames {
-      id
-      name
-    }
-    events (query: {
-      perPage: 16
-    }) {
-      nodes {
-        id
-        name
-        slug
-        startAt
-        isOnline
-        images {
-          id
-          url
-        }
-        numEntrants
-        tournament {
-          id
-          name
-          slug
-          numAttendees
-          venueAddress
-          startAt
-          state
-          images {
-            id
-            url
-          }
-        }
-        standings (query: {
-          page: 1
-          perPage: 8
-        }) {
-          nodes {
-            id
-            entrant {
-              id
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-}
-    `)
+const { result, loading, error } = useQuery(CARD_QUERY)
 
 // watch(result, value => {
-//       console.log(value.league.events.nodes)
+//       console.log(value.league.events.nodes.startAt)
 //     })
 
 const users = computed(() => result.value?.league.events.nodes ?? [])
-    return {
-        users,
-        loading,
-        error
-    }
-  },
-}
+const datetime = new Date(users.startAt * 1000).toLocaleDateString("fr");
+
 </script>
 <style lang="scss">
 @import "./style.scss";

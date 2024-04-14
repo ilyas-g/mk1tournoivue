@@ -3,9 +3,9 @@
       <div class="cards__single">
         <div class="cards__front">
           <div class="cards__front__header">
-            <!-- <div class="image">
+            <div class="image">
               <img class="cards__image" :src=linkPhotos :alt=title />
-            </div> -->
+            </div>
             <div class="cover">
               <h3 class="text">{{title}}</h3>
             </div>
@@ -19,14 +19,14 @@
 
             <div class="detail">
               <div class="title">
-                <span class="icon-location-dot-solid"></span> {t('location')}
+                <span class="icon-location-dot-solid"></span> Localisation
               </div>
               <div class="desc">{{venueAddress}}</div>
             </div>
 
             <div class="detail">
               <div class="title">
-                <span class="icon-user-solid"></span> {t('attendees')}
+                <span class="icon-user-solid"></span> Participants
               </div>
               <div class="desc">{{numAttendees}}</div>
             </div>
@@ -61,11 +61,11 @@
 // }
 defineProps<{
     // link?: string | undefined
-    // linkPhotos?: string,
+    linkPhotos?: string,
     // linkVideo?: string,
-    title: String,
+    title: string,
     numAttendees: number,
-    venueAddress: String,
+    venueAddress: string,
     date: any,
 }>()
 
