@@ -1,0 +1,50 @@
+@import "../../variables";
+
+#tournaments {
+    background: url("../../assets/007.webp") no-repeat fixed;
+    background-size: cover;
+
+    .subtitles {
+        display: flex;
+        justify-content: space-around;
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 1px solid $border;
+        margin: 35px 17px;
+
+        .subtitle {
+            margin: 0;
+            transition: all 0.25s ease 0s;
+
+            &:hover {
+                color: #d99a2b;
+                cursor: pointer;
+            }
+
+            &.activeLang {
+                font-weight: 700;
+                // text-decoration: underline;
+            }
+        }
+    }
+}
+
+.tournaments {
+    display: flex;
+    // flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#tournaments .active h3::after {
+    background: #f54d04;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffc029", endColorstr="#ddbf66", GradientType=1);
+    transition: width 0.4s;
+    content: "";
+    display: block;
+    height: 2px;
+    height: 0.13rem;
+    margin: 0.63rem auto 0;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+}

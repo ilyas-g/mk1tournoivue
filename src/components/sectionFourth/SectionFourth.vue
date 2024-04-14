@@ -9,7 +9,7 @@
 
             <div className="tournaments">
                 <div className="cards inline-itemList show-on-scroll is-visible">
-                    <Card 
+                    <Card
                     title="frfrf"
                     numAttendees="15"
                     venueAddress="Online ou adresse"
@@ -17,72 +17,95 @@
                     />
                 </div>
             </div>
+            <div v-if="loading"><Spinner/></div>
+            <div v-else-if="error">{{ error.message }}</div>
+            <ul v-else-if="users">
+                <li v-for="user of users" :key="user.id">
+                {{ user.name }} - {{ user.slug }}
+                </li>
+            </ul>
         </div>
     </section>
 </template>
-<script lang="ts" setup>
-import btf1 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1010-SMALL.webp'
-import btf2 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1710-SMALL.webp'
-import btf3 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1411-SMALL.webp'
-import btf4 from '../../assets/tournamentsImg/MK-BTF-ONLINE-31-10-SMALL.webp'
-import btf5 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1212-SMALL.webp'
-import btf6 from '../../assets/tournamentsImg/MK-BTF-ONLINE-28-11-SMALL.webp'
-import pgw2023 from '../../assets/tournamentsImg/PGW-MASTER-EVENT+-SMALL.webp'
-import versusxperience from '../../assets/tournamentsImg/versusxperience.webp'
-
-import Spinner from '../spinner/Spinner';
+<script lang="ts">
+import Spinner from '../spinner/Spinner.vue';
 import Card from '../card/Card.vue';
+import { watch, computed } from 'vue'
+import { useQuery } from '@vue/apollo-composable'
+import gql from 'graphql-tag'
+import {CARD_QUERY} from "../../queries/queries"
+// import * as albums from "../../queries/data.json"
+
+
+export default {
+    setup () {
+        const { result, loading, error } = useQuery(gql`
+query LeagueStandings {
+  league(slug: "championnat-de-france-mortal-kombat-1-classement") {
+    id
+    name
+    videogames {
+      id
+      name
+    }
+    events (query: {
+      perPage: 16
+    }) {
+      nodes {
+        id
+        name
+        slug
+        startAt
+        isOnline
+        images {
+          id
+          url
+        }
+        numEntrants
+        tournament {
+          id
+          name
+          slug
+          numAttendees
+          venueAddress
+          startAt
+          state
+          images {
+            id
+            url
+          }
+        }
+        standings (query: {
+          page: 1
+          perPage: 8
+        }) {
+          nodes {
+            id
+            entrant {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `)
+
+// watch(result, value => {
+//       console.log(value.league.events.nodes)
+//     })
+
+const users = computed(() => result.value?.league.events.nodes ?? [])
+    return {
+        users,
+        loading,
+        error
+    }
+  },
+}
 </script>
 <style lang="scss">
-@import "../../variables";
-
-#tournaments {
-    background: url("../../assets/007.webp") no-repeat fixed;
-    background-size: cover;
-
-    .subtitles {
-        display: flex;
-        justify-content: space-around;
-        background-color: rgba(0, 0, 0, 0.7);
-        border: 1px solid $border;
-        margin: 35px 17px;
-
-        .subtitle {
-            margin: 0;
-            transition: all 0.25s ease 0s;
-
-            &:hover {
-                color: #d99a2b;
-                cursor: pointer;
-            }
-
-            &.activeLang {
-                font-weight: 700;
-                // text-decoration: underline;
-            }
-        }
-    }
-}
-
-.tournaments {
-    display: flex;
-    // flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-#tournaments .active h3::after {
-    background: #f54d04;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffc029", endColorstr="#ddbf66", GradientType=1);
-    transition: width 0.4s;
-    content: "";
-    display: block;
-    height: 2px;
-    height: 0.13rem;
-    margin: 0.63rem auto 0;
-    width: 100%;
-    position: absolute;
-    bottom: -5px;
-}
-
+@import "./style.scss";
 </style>
