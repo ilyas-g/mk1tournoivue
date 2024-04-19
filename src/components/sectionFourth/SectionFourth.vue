@@ -21,13 +21,16 @@
             <div v-else-if="error">{{ error.message }}</div>
             <div className="tournaments" v-else-if="users">
                 <div className="cards inline-itemList show-on-scroll is-visible" v-for="event of users" :key="event.id">
-
                     <Card
                     :title=event.name
-                    :linkPhotos="btf2"
+                    :linkPhotos="cardImages(event.id, event.tournament.venueAddress, event.tournament.images[0].url, event.tournament.images[0].url)"
+                    linkVideo="https://www.youtube.com/watch?v=JBVP-XdMfJo"
+                    :link="`https://www.start.gg/${event.slug}`"
                     :numAttendees=event.numEntrants
-                    :venueAddress=event.slug
+                    :venueAddress="event.isOnline === true ? 'Online' : event.tournament.venueAddress"
                     :date=datetime
+                    :active-card="false"
+                    @some-event="() => bool = true"
                     />
 
                 </div>
@@ -36,6 +39,8 @@
     </section>
 </template>
 <script lang="ts" setup>
+// :linkPhotos="event.tournament.venueAddress ?event.tournament.images[0].url : event.tournament.images[1].url"
+
 import btf1 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1010-SMALL.webp'
 import btf2 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1710-SMALL.webp'
 import btf3 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1411-SMALL.webp'
@@ -50,7 +55,7 @@ import Card from '../card/Card.vue';
 import { watch, computed } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
 import {CARD_QUERY} from "../../queries/queries"
-// import * as albums from "../../queries/data.json"
+import * as albums from "../../queries/data.json"
 
 const { result, loading, error } = useQuery(CARD_QUERY)
 
@@ -58,7 +63,52 @@ const { result, loading, error } = useQuery(CARD_QUERY)
 //       console.log(value.league.events.nodes.startAt)
 //     })
 
+let bool = false
 const users = computed(() => result.value?.league.events.nodes ?? [])
+
+const locallll = computed(() => {
+    result.value?.league.events.nodes.map((x : any) => {
+        if (x.isOnline === true) {
+            return "Online"
+        } else {
+            return x.tournament.venueAddress
+        }
+    })
+})
+
+function cardImages(id: string, venueAddress:string, image1: string, image2: string) {
+    if (id == '989730') {
+            return btf1
+    } else if (id == '989731') {
+        return btf2
+    } else if (id == '989734') {
+        return btf4
+    } else if (id == '989712') {
+        return btf3
+    } else if (id == '989714') {
+        return btf6
+    } else if (id == '989715') {
+        return btf5
+    } else if (id == "1005230") {
+        return pgw2023
+    }  else if (id == "1064403") {
+        return versusxperience
+    } else {
+        if (venueAddress) {
+            return image1;
+        } else {
+            return image2;
+        }
+    }
+}
+
+watch(users, value => {
+    value.map((x: any) => console.log(x.isOnline))
+})
+
+// watch(users, value => {console.log('users' + value)})
+// watch(locallll, value => {console.log('local' + value)})
+
 const datetime = new Date(users.startAt * 1000).toLocaleDateString("fr");
 
 </script>
