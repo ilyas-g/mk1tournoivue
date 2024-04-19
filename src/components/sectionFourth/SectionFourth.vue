@@ -23,7 +23,7 @@
                 <div className="cards inline-itemList show-on-scroll is-visible" v-for="event of users" :key="event.id">
                     <Card
                     :title=event.name
-                    :linkPhotos="cardImages(event.id, event.tournament.venueAddress, event.tournament.images[0].url, event.tournament.images[0].url)"
+                    :linkPhotos="cardImages(event.id, event.tournament.venueAddress, event.tournament.images[0].url, event.tournament.images[1].url)"
                     linkVideo="https://www.youtube.com/watch?v=JBVP-XdMfJo"
                     :link="`https://www.start.gg/${event.slug}`"
                     :numAttendees=event.numEntrants
@@ -49,6 +49,7 @@ import btf5 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1212-SMALL.webp'
 import btf6 from '../../assets/tournamentsImg/MK-BTF-ONLINE-28-11-SMALL.webp'
 import pgw2023 from '../../assets/tournamentsImg/PGW-MASTER-EVENT+-SMALL.webp'
 import versusxperience from '../../assets/tournamentsImg/versusxperience.webp'
+import gamingrouen from '../../assets/tournamentsImg/gamingrouen.webp'
 
 import Spinner from '../spinner/Spinner.vue';
 import Card from '../card/Card.vue';
@@ -91,7 +92,9 @@ function cardImages(id: string, venueAddress:string, image1: string, image2: str
         return btf5
     } else if (id == "1005230") {
         return pgw2023
-    }  else if (id == "1064403") {
+    } else if (id == "994339") {
+        return gamingrouen
+    } else if (id == "1064403") {
         return versusxperience
     } else {
         if (venueAddress) {
