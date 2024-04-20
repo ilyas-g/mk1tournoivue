@@ -36,8 +36,10 @@
             <button class="btn waves-effect waves-light" @click="$emit('someEvent')">Résultats</button>
             <!-- {children ? <button class="btn waves-effect waves-light" onClick={() => setActive(true)}>Résultats</button> : ''} -->
             <a :href=link target="_blank" class="btn waves-effect waves-light">Bracket</a>
-            <a :href=linkVideo target="_blank" class="btn waves-effect waves-light">Vidéo</a>
-            <!-- {linkVideo !== undefined && <a href={`${linkVideo}`} target="_blank" class="btn waves-effect waves-light">Vidéo</a>} -->
+            <!-- <a :href=linkVideo target="_blank" class="btn waves-effect waves-light">Vidéo</a> -->
+            <template v-if="linkVideo !== undefined">
+              <a :href=linkVideo target="_blank" class="btn waves-effect waves-light">Vidéo</a>
+            </template>
           </div>
         </div>
 
@@ -72,7 +74,7 @@ import { computed } from 'vue';
 defineProps<{
     link?: string | undefined
     linkPhotos?: string,
-    linkVideo?: string,
+    linkVideo?: any,
     title: string,
     numAttendees: number,
     venueAddress: any,

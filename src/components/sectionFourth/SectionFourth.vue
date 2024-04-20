@@ -2,44 +2,40 @@
     <section id="tournaments" className="black-section">
         <div className="container relative-content">
             <h2 className="text-center">Tournois</h2>
-            <!-- <div className='subtitles'>
-                <h3 className={`subtitle ${tournamentsCheck === true ? 'activeLang' : '' }`} onClick={() => setTournamentsCheck(true)}>{t('upcomingTournaments')}</h3>
-                <h3 className={`subtitle ${tournamentsCheck === false ? 'activeLang' : '' }`} onClick={() => setTournamentsCheck(false)}>{t('finishedTournaments')}</h3>
-            </div> -->
+            <div className='subtitles'>
+                <h3 class="subtitle" @click="toggleState(true)" :class="isCollapsed === true && 'activeLang' ">Résultats finaux</h3>
+                <h3 class="subtitle" @click="toggleState(false)" :class="isCollapsed === false && 'activeLang' ">Tournois</h3>
+            </div>
 
-            <!-- <div className="tournaments">
-                <div className="cards inline-itemList show-on-scroll is-visible">
-                    <Card
-                    title="frfrf"
-                    numAttendees="15"
-                    venueAddress="Online ou adresse"
-                    date="02/01/2020"
-                    />
-                </div>
-            </div> -->
-            <div v-if="loading"><Spinner/></div>
-            <div v-else-if="error">{{ error.message }}</div>
-            <div className="tournaments" v-else-if="users">
-                <div className="cards inline-itemList show-on-scroll is-visible" v-for="event of users" :key="event.id">
-                    <Card
-                    :title=event.name
-                    :linkPhotos="cardImages(event.id, event.tournament.venueAddress, event.tournament.images[0].url, event.tournament.images[1].url)"
-                    linkVideo="https://www.youtube.com/watch?v=JBVP-XdMfJo"
-                    :link="`https://www.start.gg/${event.slug}`"
-                    :numAttendees=event.numEntrants
-                    :venueAddress="event.isOnline === true ? 'Online' : event.tournament.venueAddress"
-                    :date=datetime
-                    :active-card="false"
-                    @some-event="() => bool = true"
-                    />
+            <div v-if="isCollapsed === true">
+                <p>R2SUKTATTTTSSSS</p>
+            </div>
 
+            <div v-else>
+                <div v-if="loading"><Spinner/></div>
+                <div v-else-if="error">{{ error.message }}</div>
+                <div className="tournaments" v-else-if="users">
+                    <div className="cards inline-itemList show-on-scroll is-visible" v-for="event of users" :key="event.id">
+                        <Card
+                        :title=event.name
+                        :linkPhotos="cardImages(event.id, event.tournament.venueAddress, event.tournament.images[0].url, event.tournament.images[1].url)"
+                        :linkVideo="cardVideos(event.id, event.id)"
+                        :link="`https://www.start.gg/${event.slug}`"
+                        :numAttendees=event.numEntrants
+                        :venueAddress="event.isOnline === true ? 'Online' : event.tournament.venueAddress"
+                        :date="new Date(event.startAt * 1000).toLocaleDateString('fr')"
+                        :active-card="false"
+                        @some-event="() => bool = true"
+                        />
+
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </template>
 <script lang="ts" setup>
-// :linkPhotos="event.tournament.venueAddress ?event.tournament.images[0].url : event.tournament.images[1].url"
+// linkVideo="https://www.youtube.com/watch?v=JBVP-XdMfJo"
 
 import btf1 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1010-SMALL.webp'
 import btf2 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1710-SMALL.webp'
@@ -53,31 +49,34 @@ import gamingrouen from '../../assets/tournamentsImg/gamingrouen.webp'
 
 import Spinner from '../spinner/Spinner.vue';
 import Card from '../card/Card.vue';
-import { watch, computed } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
 import {CARD_QUERY} from "../../queries/queries"
 import * as albums from "../../queries/data.json"
 
 const { result, loading, error } = useQuery(CARD_QUERY)
 
-// watch(result, value => {
-//       console.log(value.league.events.nodes.startAt)
-//     })
-
+const isCollapsed = ref(true)
+const toggleState = (toggleValue: boolean) => {
+    isCollapsed.value = toggleValue;
+  };
 let bool = false
 const users = computed(() => result.value?.league.events.nodes ?? [])
 
-const locallll = computed(() => {
-    result.value?.league.events.nodes.map((x : any) => {
-        if (x.isOnline === true) {
-            return "Online"
-        } else {
-            return x.tournament.venueAddress
+function cardVideos(index:any, indexx: any) {
+    let alb;
+    albums.albums.map((album) => {
+        if (album.link !== undefined) {
+            if(index === indexx) {
+                // alb = `${import.meta.env.VITE_ALBUM_LINK}${album.link}`
+                alb = `https://www.youtube.com/watch?v=${album.link}`
+                return alb
+            }
         }
     })
-})
+}
 
-function cardImages(id: string, venueAddress:string, image1: string, image2: string) {
+function cardImages(id: string, venueAddress: string, image1: string, image2: string) {
     if (id == '989730') {
             return btf1
     } else if (id == '989731') {
@@ -105,15 +104,10 @@ function cardImages(id: string, venueAddress:string, image1: string, image2: str
     }
 }
 
-watch(users, value => {
-    value.map((x: any) => console.log(x.isOnline))
-})
-
+// watch(users, value => {
+//     value.map((x: any) => console.log(x.isOnline))
+// })
 // watch(users, value => {console.log('users' + value)})
-// watch(locallll, value => {console.log('local' + value)})
-
-const datetime = new Date(users.startAt * 1000).toLocaleDateString("fr");
-
 </script>
 <style lang="scss">
 @import "./style.scss";
