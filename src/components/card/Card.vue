@@ -74,7 +74,7 @@ import { computed } from 'vue';
 defineProps<{
     link?: string | undefined
     linkPhotos?: string,
-    linkVideo?: any,
+    linkVideo?: string,
     title: string,
     numAttendees: number,
     venueAddress: any,
