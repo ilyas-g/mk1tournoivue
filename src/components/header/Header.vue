@@ -1,13 +1,13 @@
 <template>
 		<header className="header">
 			<div className="logo-header">
-				<RouterLink to="/">
+				<router-link to="/">
 					<img className="logo" :src="nsxcLogo" alt="NSXC" />
-				</RouterLink>
+				</router-link>
 			</div>
 
 			<div class="responsive-menu-opener show-responsive-992">
-				<span @click="toggleBurger">
+				<span @click="$emit('toggleBurger')">
 					<template v-if="burger === true">
 						<span class="icon-xmark-solid"></span>
 					</template>
@@ -19,19 +19,24 @@
 			</div>
 
 			<ul class="header-menu clearfix hide-responsive-992">
-				<li class="classement" @click="funcClassement">Classement</li>
-				<li><a id="five" data-toggle="modal" data-target="#myModal" className="video" onClick={funcVideo}>Trailer</a></li>
-				<li><RouterLink to="/#tournaments" class="special">Tournois</RouterLink></li>
-				<li class="contact-switch" @click="funcContact">Contact</li>
-				<li><RouterLink to="/#schedule">Etapes</RouterLink></li>
-				<li><RouterLink to="/#event-section">Présentation</RouterLink></li>
+				<li class="classement" @click="$emit('toggleClassement')">Classement</li>
+				<li><a id="five" data-toggle="modal" data-target="#myModal" className="video" @click="$emit('toggleVideo')">Trailer</a></li>
+				<li><a href="/#tournaments" class="special">Tournois</a></li>
+				<li class="contact-switch" @click="$emit('toggleContact')">Contact</li>
+				<li><a href="/#schedule">Etapes</a></li>
+				<li><a href="/#event-section">Présentation</a></li>
 			</ul>
 		</header>
 </template>
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import nsxcLogo from '@/assets/NSXC_BLANC2.webp'
+import { ref } from 'vue'
 
+const isBurger = ref(false)
+const toggleBurger = (toggleValue: boolean) => {
+    isBurger.value = toggleValue;
+};
 </script>
 <style>
 @import "./style.scss";
