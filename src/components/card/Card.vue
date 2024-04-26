@@ -1,7 +1,5 @@
 <template>
-      <!-- <div class={`cards__single ${active === true ? 'flip' : ''}`}> -->
       <div class="cards__single" :class="[isActive === true ? 'flip' : '']">
-      <!-- <div class="cards__single"> -->
         <div class="cards__front">
           <div class="cards__front__header">
             <div class="image">
@@ -34,9 +32,7 @@
           </div>
           <div class="cards__front__footer">
             <button class="btn waves-effect waves-light" @click="toggleActive(true)">Résultats</button>
-            <!-- {children ? <button class="btn waves-effect waves-light" onClick={() => setActive(true)}>Résultats</button> : ''} -->
             <a :href=link target="_blank" class="btn waves-effect waves-light">Bracket</a>
-            <!-- <a :href=linkVideo target="_blank" class="btn waves-effect waves-light">Vidéo</a> -->
             <template v-if="linkVideo !== undefined">
               <a :href=linkVideo target="_blank" class="btn waves-effect waves-light">Vidéo</a>
             </template>
@@ -47,9 +43,6 @@
           <h3>TOP 8</h3>
           <slot>
           </slot>
-          <!-- <div class="cards__front__footer">
-            <button class="btn waves-effect waves-light mt-4" onClick={() => setActive(false)}>Retour</button>
-          </div> -->
 
           <div class="cards__front__footer">
             <button class="btn waves-effect waves-light mt-4" @click="toggleActive(false)">Retour</button>
@@ -58,19 +51,7 @@
       </div>
 </template>
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
-
-
-// interface Props {
-//   link?: string | undefined
-//   linkPhotos?: string
-//   linkVideo?: string
-//   title: string
-//   children?: JSX.Element
-//   numAttendees: number
-//   venueAddress: string
-//   date: any
-// }
+import { ref } from 'vue';
 defineProps<{
     link?: string | undefined
     linkPhotos?: string,
