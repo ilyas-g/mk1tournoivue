@@ -36,9 +36,6 @@
     </section>
 </template>
 <script lang="ts" setup>
-// linkVideo="https://www.youtube.com/watch?v=JBVP-XdMfJo"
-// :linkVideo="`https://www.youtube.com/watch?v=${event.id}`"
-
 import btf1 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1010-SMALL.webp'
 import btf2 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1710-SMALL.webp'
 import btf3 from '../../assets/tournamentsImg/MK-BTF-ONLINE-1411-SMALL.webp'
@@ -56,29 +53,6 @@ import { useQuery } from '@vue/apollo-composable'
 import {CARD_QUERY} from "../../queries/queries"
 import albums from "../../queries/data.json"
 
-let keyy = 1
-const json = ref([
-    {
-        id: 989730,
-        link: "IBMqzvKFgcA"
-    },
-    {
-        id: 989731,
-        link: "PExRdbEQEh8"
-    },
-    {
-        id: 989712,
-        link: "O-nmUHFEI3Q"
-    }
-])
-
-const jso = computed(() => json ?? [])
-watch(jso, value => {console.log('users' + value)})
-// console.log(json.value)
-
-// const albumms = computed(() => albums ?? [])
-// watch(albumms, value => {console.log('users' + value)})
-
 const { result, loading, error } = useQuery(CARD_QUERY)
 
 const isCollapsed = ref(false)
@@ -89,7 +63,7 @@ let bool = false
 const users = computed(() => result.value?.league.events.nodes ?? [])
 
 function cardVideos(indexx:number) {
-    let alb:any;
+    let alb
     albums.map((album) => {
         if(album.idCard === indexx) {
             // alb = `${import.meta.env.VITE_ALBUM_LINK}${album.link}`
@@ -102,7 +76,7 @@ function cardVideos(indexx:number) {
 
 function cardImages(id: string, venueAddress: string, image1: string, image2: string) {
     if (id == '989730') {
-            return btf1
+        return btf1
     } else if (id == '989731') {
         return btf2
     } else if (id == '989734') {
@@ -127,20 +101,6 @@ function cardImages(id: string, venueAddress: string, image1: string, image2: st
         }
     }
 }
-
-// function cardVideos(id: string) {
-//     if (id == '989730') {
-//             return 'https://www.youtube.com/watch?v=IBMqzvKFgcA'
-//     } else if (id == '989731') {
-//         return 'https://www.youtube.com/watch?v=O-nmUHFEI3Q'
-//     } else if (id == '989734') {
-//         return 'https://www.youtube.com/watch?v=FXbMa4sgUxA'
-//     } else if (id == '989712') {
-//         return 'https://www.youtube.com/watch?v=zYuUtdqQii8'
-//     } else if (id == "1005230") {
-//         return 'https://www.youtube.com/watch?v=fpWr08ZcIQA'
-//     }
-// }
 
 // watch(users, value => {
 //     value.map((x: any) => console.log(x.isOnline))
