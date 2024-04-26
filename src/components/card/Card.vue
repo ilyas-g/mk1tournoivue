@@ -1,6 +1,6 @@
 <template>
       <!-- <div class={`cards__single ${active === true ? 'flip' : ''}`}> -->
-      <div class="cards__single" :class="[activeCard === true ? 'flip' : '']">
+      <div class="cards__single" :class="[isActive === true ? 'flip' : '']">
       <!-- <div class="cards__single"> -->
         <div class="cards__front">
           <div class="cards__front__header">
@@ -33,7 +33,7 @@
             </div>
           </div>
           <div class="cards__front__footer">
-            <button class="btn waves-effect waves-light" @click="$emit('someEvent')">Résultats</button>
+            <button class="btn waves-effect waves-light" @click="toggleActive(true)">Résultats</button>
             <!-- {children ? <button class="btn waves-effect waves-light" onClick={() => setActive(true)}>Résultats</button> : ''} -->
             <a :href=link target="_blank" class="btn waves-effect waves-light">Bracket</a>
             <!-- <a :href=linkVideo target="_blank" class="btn waves-effect waves-light">Vidéo</a> -->
@@ -52,13 +52,13 @@
           </div> -->
 
           <div class="cards__front__footer">
-            <button class="btn waves-effect waves-light mt-4" @click="setActive(false)">Retour</button>
+            <button class="btn waves-effect waves-light mt-4" @click="toggleActive(false)">Retour</button>
           </div>
         </div>
       </div>
 </template>
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
 
 // interface Props {
@@ -79,11 +79,12 @@ defineProps<{
     numAttendees: number,
     venueAddress: any,
     date: any,
-    activeCard: Boolean,
 }>()
 
-const activvve = computed(() => activeCard.value)
-const setActive = () => activeCard.value = !activeCard.value
+const isActive = ref(false)
+const toggleActive = (toggleValue: boolean) => {
+    isActive.value = toggleValue;
+};
 </script>
 <style lang="scss">
 @import "./style.scss";

@@ -18,16 +18,20 @@
                     <div className="cards inline-itemList show-on-scroll is-visible" v-for="event of users" :key="event.id">
 
                         <Card
-                        :title="`${event.id} - ${event.name}`"
+                        :title="event.name"
                         :linkPhotos="cardImages(event.id, event.tournament.venueAddress, event.tournament.images[0].url, event.tournament.images[1].url)"
                         :linkVideo="cardVideos(event.id)"
                         :link="`https://www.start.gg/${event.slug}`"
                         :numAttendees=event.numEntrants
                         :venueAddress="event.isOnline === true ? 'Online' : event.tournament.venueAddress"
                         :date="new Date(event.startAt * 1000).toLocaleDateString('fr')"
-                        :active-card="false"
-                        @some-event="() => bool = true"
-                        />
+                        >
+                        <ul>
+                            <li  v-for="player of event.standings.nodes" :key="player.entrant.id">
+                                {{player.entrant.name}}
+                            </li>
+                        </ul>
+                        </Card>
 
                     </div>
                 </div>
@@ -55,13 +59,17 @@ import albums from "../../queries/data.json"
 
 const { result, loading, error } = useQuery(CARD_QUERY)
 
+/* GESTION DES ONGLETS */
 const isCollapsed = ref(false)
 const toggleState = (toggleValue: boolean) => {
     isCollapsed.value = toggleValue;
-  };
+};
+
+
 let bool = false
 const users = computed(() => result.value?.league.events.nodes ?? [])
 
+/* GESTION DES LIENS VIDEOS DES CARDS */
 function cardVideos(indexx:number) {
     let alb
     albums.map((album) => {
@@ -74,6 +82,7 @@ function cardVideos(indexx:number) {
     return alb
 }
 
+/* GESTION DES IMAGES DES CARDS */
 function cardImages(id: string, venueAddress: string, image1: string, image2: string) {
     if (id == '989730') {
         return btf1
