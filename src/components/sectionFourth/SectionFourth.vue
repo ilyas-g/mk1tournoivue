@@ -65,8 +65,6 @@ const toggleState = (toggleValue: boolean) => {
     isCollapsed.value = toggleValue;
 };
 
-
-let bool = false
 const users = computed(() => result.value?.league.events.nodes ?? [])
 
 /* GESTION DES LIENS VIDEOS DES CARDS */

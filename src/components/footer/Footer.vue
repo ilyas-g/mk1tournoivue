@@ -11,7 +11,7 @@
                     <li><a href="/#tournaments">Tournois</a>
                     </li>
                     <li onClick={funcContact}>Contact</li>
-                    <li onClick={funcClassement}>Classement</li>
+                    <li @click="$emit('toggleClassement')">Classement</li>
                 </ul>
 
                 <div>
