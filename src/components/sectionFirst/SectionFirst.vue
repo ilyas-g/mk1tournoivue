@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <section id="home-section" className="bg-fixed bg-cover dark-section">
         <video :src="videoBg" autoPlay loop muted />
         <div className="content-video">
@@ -14,7 +14,7 @@
                     <div className="home-event-buttons">
                         <a href="/#event-section" className="btn-ope">Présentation <span className="icon-chevron-down-solid-1"></span></a>
                         <a href="/#tournaments" className="btn-ope special">Tournois <span className="icon-chevron-down-solid-1" aria-hidden="true"></span></a>
-                        <button className="btn-ope video btf-btn" onClick={func}>Voir le trailer</button>
+                        <button className="btn-ope video btf-btn" @click="$emit('toggleModal')">Voir le trailer</button>
                     </div>
                 </div>
             </div>

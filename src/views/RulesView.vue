@@ -488,7 +488,7 @@
           <table :border="1" cellPadding="1" cellSpacing="1" className="table table-body-center table-bordered table-condensed">
               <thead>
                   <tr>
-                      <th colSpan={2}><span style={{color:"#ecf0f1"}}>Prix en argent permanent (EUR)</span></th>
+                      <th colSpan={2}><span :style="{color: '#ecf0f1'}>Prix en argent permanent (EUR)</span></th>
                   </tr>
               </thead>
               <tbody>

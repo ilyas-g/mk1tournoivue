@@ -5,6 +5,9 @@ import Header from './components/header/Header.vue'
 import Footer from './components/footer/Footer.vue'
 import Classement from './components/classement/Classement.vue'
 import Contact from './components/contactBlock/ContactBlock.vue'
+import NotFound from './components/notFound/NotFound.vue'
+import Modal from './components/modal/Modal.vue'
+
 import { ref, watch, computed } from 'vue'
 
 import {STANDING_QUERY} from "./queries/queries"
@@ -26,12 +29,20 @@ const toggleContact = (toggleValue: boolean) => {
   isContact.value = toggleValue;
 };
 
+const isModal = ref(false)
+const toggleModal = (toggleValue: boolean) => {
+    isModal.value = toggleValue;
+};
+
 const { result, loading, error } = useQuery(STANDING_QUERY)
 const participants = computed(() => result.value?.league.standings.nodes ?? [])
 </script>
 
 <template>
-  <Header @toggle-contact="toggleContact(true)" @toggle-classement="toggleClassement(true)" />
+  <Header 
+  @toggle-contact="toggleContact(true)" 
+  @toggle-classement="toggleClassement(true)" 
+  @toggle-modal="toggleModal(true)" />
   <!-- <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
@@ -46,10 +57,13 @@ const participants = computed(() => result.value?.league.standings.nodes ?? [])
   </header> -->
 
   <RouterView />
+  
   <Footer @toggle-contact="toggleContact(true)" @toggle-classement="toggleClassement(true)" />
   <template v-if="isContact === true">
     <Contact mail="flashno47@gmail.com" @toggle-contact="toggleContact(false)" />
   </template>
+
+
   <template v-if="isClassement === true">
     <div v-if="loading"><Spinner/></div>
     <div v-else-if="error">{{ error.message }}</div>
@@ -75,6 +89,18 @@ const participants = computed(() => result.value?.league.standings.nodes ?? [])
 			</div>
     </Classement>
   </template>
+
+
+  <template v-if="isModal === true">
+      <Modal @toggle-modal="toggleModal(false)">
+        <iframe width={widthVideo} height={heightVideo} src="https://www.youtube.com/embed/6mFKuKw4hKA?si=RkylAhCb2E9aDK3V" 
+            title="Championnat de France de Mortal Kombat - Trailer" 
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen>
+        </iframe>
+      </Modal>
+    </template>
 </template>
 
 <style lang="scss">
