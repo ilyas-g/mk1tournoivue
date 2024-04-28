@@ -10,12 +10,10 @@ import Modal from '../components/modal/Modal.vue'
 
 import { ref } from 'vue'
 
-// import useWindowDimensions from "./utils/useWindowDimensions";
+import useDimension from '../utils/useDimension.js'
 
-
-// const { width } = useWindowDimensions();
-// 	const widthVideo: number = width - 320
-// 	const heightVideo: number = widthVideo * (9/16)
+// Destructuring assignment - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring
+const {width} = useDimension()
 
 const isModal = ref(false)
 const toggleModal = (toggleValue: boolean) => {
@@ -34,7 +32,7 @@ const toggleModal = (toggleValue: boolean) => {
     <SectionFourth />
     <template v-if="isModal === true">
       <Modal @toggle-modal="toggleModal(false)">
-        <iframe width={widthVideo} height={heightVideo} src="https://www.youtube.com/embed/6mFKuKw4hKA?si=RkylAhCb2E9aDK3V" 
+        <iframe :width="width - 320" :height="(width - 320) / (16/9)" src="https://www.youtube.com/embed/6mFKuKw4hKA?si=RkylAhCb2E9aDK3V" 
             title="Championnat de France de Mortal Kombat - Trailer" 
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 

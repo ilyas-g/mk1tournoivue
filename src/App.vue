@@ -13,6 +13,8 @@ import { ref, watch, computed } from 'vue'
 import {STANDING_QUERY} from "./queries/queries"
 import { useQuery } from '@vue/apollo-composable'
 
+import useDimension from './utils/useDimension.js'
+
 const isClassement = ref(false)
 const toggleClassement = (toggleValue: boolean) => {
     isClassement.value = toggleValue;
@@ -29,9 +31,19 @@ const toggleContact = (toggleValue: boolean) => {
   isContact.value = toggleValue;
 };
 
+
+// Destructuring assignment - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring
+const {width} = useDimension()
+
 const isModal = ref(false)
 const toggleModal = (toggleValue: boolean) => {
     isModal.value = toggleValue;
+
+    if(isModal.value === true) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "auto"
+    }
 };
 
 const { result, loading, error } = useQuery(STANDING_QUERY)
@@ -93,7 +105,7 @@ const participants = computed(() => result.value?.league.standings.nodes ?? [])
 
   <template v-if="isModal === true">
       <Modal @toggle-modal="toggleModal(false)">
-        <iframe width={widthVideo} height={heightVideo} src="https://www.youtube.com/embed/6mFKuKw4hKA?si=RkylAhCb2E9aDK3V" 
+        <iframe :width="width - 320" :height="(width - 320) / (16/9)" src="https://www.youtube.com/embed/6mFKuKw4hKA?si=RkylAhCb2E9aDK3V" 
             title="Championnat de France de Mortal Kombat - Trailer" 
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
