@@ -67,7 +67,6 @@ const participants = computed(() => result.value?.league.standings.nodes ?? [])
       </nav>
     </div>
   </header> -->
-
   <RouterView />
   
   <Footer @toggle-contact="toggleContact(true)" @toggle-classement="toggleClassement(true)" />
