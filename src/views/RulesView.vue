@@ -1,7 +1,7 @@
 <template lang="">
-    <main className='rulesPage'>
+    <main class='rulesPage'>
       <section>
-        <h1 className='text-center'>RÈGLEMENT OFFICIEL DU CHAMPIONNAT</h1>
+        <h1 class='text-center'>RÈGLEMENT OFFICIEL DU CHAMPIONNAT</h1>
 
         <h2 id="introduction">Introduction</h2>
         <p>
@@ -41,7 +41,7 @@
         </p>
         <p>Gagnant - tout joueur officiellement déclaré gagnant</p>
 
-        <h2 className="anchor" id="formatDuChampionnat">Format du championnat</h2>
+        <h2 class="anchor" id="formatDuChampionnat">Format du championnat</h2>
         <p>Les tournois sont ouverts aux personnes âgées de dix-huit (18) ans révolus ou plus à la date de leur inscription à un tournoi. Les tournois en ligne et hors ligne sont réservés exclusivement aux résidents français.
         </p>
 
@@ -67,8 +67,8 @@
         <p>Les tournois recevront des points qui seront utilisés pour classer les joueurs dans un classement de points conformément au tableau ci-dessous :</p>
         
         <h4 id="format-points-enLigne">En ligne :</h4>
-        <div className="responsive-table-line mb-5">
-          <table :border="1" cellPadding="1" cellSpacing="1" className="table table-body-center table-bordered table-condensed">
+        <div class="responsive-table-line mb-5">
+          <table :border="1" cellPadding="1" cellSpacing="1" class="table table-body-center table-bordered table-condensed">
               <thead>
                   <tr>
                       <th><span>Placement</span></th>
@@ -112,8 +112,8 @@
         </div>
 
         <h4 id="format-points-horsLigneChallenge">Hors ligne : Challenger Event</h4>
-        <div className="responsive-table-line mb-5">
-          <table :border="1" cellPadding="1" cellSpacing="1" className="table table-body-center table-bordered table-condensed">
+        <div class="responsive-table-line mb-5">
+          <table :border="1" cellPadding="1" cellSpacing="1" class="table table-body-center table-bordered table-condensed">
               <thead>
                   <tr>
                       <th><span>Placement</span></th>
@@ -170,8 +170,8 @@
         </div>
 
         <h4 id="format-points-horsLigneMaster">Hors ligne : Master / Master+ Event</h4>
-        <div className="responsive-table-line mb-5">
-          <table :border="1" cellPadding="1" cellSpacing="1" className="table table-body-center table-bordered table-condensed">
+        <div class="responsive-table-line mb-5">
+          <table :border="1" cellPadding="1" cellSpacing="1" class="table table-body-center table-bordered table-condensed">
               <thead>
                   <tr>
                       <th><span>Placement</span></th>
@@ -484,11 +484,11 @@
         <h3 id="prix-championnat">Prix du championnat</h3>
         <p>Joker Paris attribuera un total de dix mille euros (10 000 €) pour l'intégralité du championnat, selon le tableau suivant :</p>
 
-        <div className="responsive-table-line mb-5">
-          <table :border="1" cellPadding="1" cellSpacing="1" className="table table-body-center table-bordered table-condensed">
+        <div class="responsive-table-line mb-5">
+          <table :border="1" cellPadding="1" cellSpacing="1" class="table table-body-center table-bordered table-condensed">
               <thead>
                   <tr>
-                      <th colSpan={2}><span style={{color:"#ecf0f1"}}>Prix en argent permanent (EUR)</span></th>
+                      <th colSpan="2"><span :style="{color: '#ecf0f1'}">Prix en argent permanent (EUR)</span></th>
                   </tr>
               </thead>
               <tbody>
@@ -525,10 +525,10 @@
           15126 57074 METZ Cedex 3. </p>
       </section>
 
-      <aside>
-        <div className='sticky mb-5'>
+      <aside class="sommaire">
+        <div class='sticky mb-5'>
           <div>
-            <p className='text-center text-uppercase title' onClick={toggleActive}>Sommaire</p>
+            <p class='text-center text-uppercase title'>Sommaire</p>
             <ul>
               <li><a href="#introduction">Introduction</a></li>
               <li><a href="#definitions">Définitions</a></li>
@@ -569,5 +569,103 @@
 </template>
 
 <style lang="scss">
-    
+@import "../variables";
+
+.rulesPage {
+    color: white;
+    background-color: rgb(36, 36, 36);
+    display: flex;
+
+    section {
+        padding: 50px 50px 0;
+        order: 2;
+        width: fit-content;
+    }
+
+    h1 {
+        margin-top: 0.83em;
+    }
+
+    h2 {
+        margin-top: 0.83em;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        margin-top: 1em;
+    }
+
+    ul li::before {
+        content: "▪";
+        color: #ffc029;
+        padding-right: 10px;
+    }
+
+    table {
+        color: white;
+
+        th {
+            background-color: $bg-table-cell;
+        }
+    }
+
+    .sommaire {
+        display: none;
+
+        @media screen and (min-width: $media-queries-desktop) {
+            display: block;
+            // border: 1px solid $border;
+            background-color: rgba(0, 0, 0, 0.7);
+            // width: 100%;
+            // overflow: hidden;
+            position: relative;
+            order: 1;
+
+            .title {
+                font-size: 35px;
+                font-weight: 700;
+            }
+
+            p {
+                margin-bottom: 10px;
+            }
+
+
+            ul li {
+                font-size: 14px;
+
+                @media screen and (min-width: $media-queries-desktop-xl) {
+                    font-size: 16px;
+                }
+
+                @media screen and (min-height: 540px) {
+                    font-size: 14px;
+                }
+
+                @media screen and (min-height: $media-queries-tablet) {
+                    font-size: 16px;
+                }
+
+                ul li {
+                    padding-left: 13px;
+                }
+            }
+        }
+    }
+
+    .sticky {
+        position: sticky;
+        // margin: -17px 15px 0;
+        padding: 0 15px;
+        top: 70px;
+    }
+
+    [id]::before {
+        content: '';
+        display: block;
+        height: 75px;
+        margin-top: -75px;
+        visibility: hidden;
+    }
+}
 </style>

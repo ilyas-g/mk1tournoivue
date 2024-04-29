@@ -4,14 +4,14 @@
             <div className="container">
 
                 <ul className="footer-nav mb-4">
-                    <li><RouterLink to="/#event-section">Présentation</RouterLink>
+                    <li><a href="/#event-section">Présentation</a>
                     </li>
-                    <li><RouterLink to="/#schedule">Étapes</RouterLink>
+                    <li><a href="/#schedule">Étapes</a>
                     </li>
-                    <li><RouterLink to="/#tournaments">Tournois</RouterLink>
+                    <li><a href="/#tournaments">Tournois</a>
                     </li>
-                    <li onClick={funcContact}>Contact</li>
-                    <li onClick={funcClassement}>Classement</li>
+                    <li @click="$emit('toggleContact')">Contact</li>
+                    <li @click="$emit('toggleClassement')">Classement</li>
                 </ul>
 
                 <div>
