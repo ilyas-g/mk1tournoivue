@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import SectionFourth from '@/components/sectionFourth/SectionFourth.vue';
-import TheWelcome from '../components/TheWelcome.vue'
 import SectionFirst from '../components/sectionFirst/SectionFirst.vue'
 import SectionSecond from '../components/sectionSecond/SectionSecond.vue'
 import SectionThird from '../components/sectionThird/SectionThird.vue'
@@ -23,7 +22,6 @@ const toggleModal = (toggleValue: boolean) => {
 
 <template>
   <main>
-    <!-- <TheWelcome /> -->
     <SectionFirst @toggle-modal="toggleModal(true)"/>
     <WhiteBar />
     <SectionSecond />
@@ -40,6 +38,5 @@ const toggleModal = (toggleValue: boolean) => {
         </iframe>
       </Modal>
     </template>
-    <!-- <h1>odjfhudsjkdjfkdshddjhsjkj</h1> -->
   </main>
 </template>

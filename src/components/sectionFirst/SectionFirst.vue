@@ -29,13 +29,7 @@ import videoBg from '../../assets/mkchampionshipvideo.mp4'
 @import "../../variables";
 
 #home-section {
-    // background-image: url('../../assets/001.jpg');
-    // background-image: url('https://img.freepik.com/photos-premium/fond-abstrait-vague-blanche-fond-ecran-graphique-blanc-minimal-illustration-2d_67092-1294.jpg?w=2000');
     overflow: hidden;
-
-    // .bg-layer {
-    //     height: 98%;
-    // }
 }
 
 .dark-section {
@@ -224,8 +218,4 @@ video {
     display: flex;
     justify-content: center;
 }
-
-// padding: 0.6em 1.2em;
-// hover : padding 15
-
 </style>

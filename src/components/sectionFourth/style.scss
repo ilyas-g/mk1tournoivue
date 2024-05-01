@@ -53,50 +53,8 @@
 /*       RESULTATS        */
 /* ---------------------- */
 
-.pflex {
-    display: flex;
-    flex-direction: row;
-    margin: 0 17px;
-
-    .vic {
-        flex: 1 0 30%;
-        padding-right: 30px;
-
-        img {
-            width: 100%;
-            background: #efecdb;
-            padding: 1vh;
-            // box-shadow: 0 0 60px #f1c40f;
-            box-shadow: 0 0 40px rgba(241, 196, 15, 0.6);
-
-        }
-    }
-
-    .players {
-        flex: 1 0 70%;
-    }
-
-    @media screen and (min-width: $media-queries-desktop-xl) {
-        .vic {
-            flex: 1 0 20%;
-        }
-
-        .players {
-            flex: 1 0 80%;
-        }
-    }
-}
-
-.players {
-    display: flex;
-    // flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
 .player {
     position: relative;
-    // margin: 0 4px 0 0;
 
     img {
         width: 100%;
@@ -105,12 +63,6 @@
         padding: 0.5vh;
         background: #efecdb;
         box-shadow: 0 10px 30px #5f2f1182;
-        // box-shadow: 0 0 60px rgba(242, 150, 39, 0.6);
-
-        // @media screen and (min-width: $media-queries-tablet-small) {
-        //     margin: 0 0 35px;
-        //     max-width: 215px;
-        // }
 
         @media screen and (min-width: $media-queries-tablet) {
             max-width: 230px;
@@ -129,10 +81,6 @@
         bottom: inherit;
         left: inherit;
         right: 0;
-
-        @media screen and (min-width: $media-queries-desktop-xl) {
-            // font-size: 30px;
-        }
     }
 
     &.silver {
@@ -149,7 +97,6 @@
     }
 }
 
-
 .player {
     margin: 0 0 75px;
 
@@ -163,15 +110,12 @@
         color: rgb(55, 14, 14);
         position: absolute;
         top: -45px;
-        // bottom: 0;
         left: 0;
         right: 0;
     }
 
     &.champ {
-
         flex: 1 0 24%;
-        // padding-right: 30px;
         margin-bottom: 30px;
 
         img {
@@ -179,10 +123,7 @@
             max-width: 350px;
             background: #efecdb;
             padding: 1vh;
-            // margin-right: 65px;
-            // box-shadow: 0 0 60px #f1c40f;
             box-shadow: 0 0 40px rgba(241, 196, 15, 0.6);
-            position: relative
         }
 
         p {
@@ -210,7 +151,6 @@
     }
 
 }
-
 
 .results {
     .section {

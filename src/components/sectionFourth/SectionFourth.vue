@@ -11,6 +11,7 @@
                 <div class="results">
                     <div class="section champ">
                         <div class="player champ">
+                            <p className='playerRank'>1er</p>
                             <img :src="akstar">
                             <p class="playerName">Akstar</p>
                         </div>
@@ -30,12 +31,12 @@
                         </div>
                         <div class="player bronze">
                             <p className='playerRank'>3ème</p>
-                            <img :src="lechatnoir" class="players" />
+                            <img :src="lechatnoir" />
                             <p class="playerName">Le Chat Noir</p>
                         </div>
                         <div class="player">
                             <p className='playerRank'>4ème</p>
-                            <img :src="ganondeurf" class="players" />
+                            <img :src="ganondeurf" />
                             <p class="playerName">Ganondeurf</p>
                         </div>
                     </div>
@@ -43,23 +44,23 @@
                     <div class="section">
                         <div class="player">
                             <p className='playerRank'>5ème</p>
-                            <img :src="rza" class="players" />
+                            <img :src="rza" />
                             <p class="playerName">RZA</p>
                         </div>
                         <div class="player">
                             <p className='playerRank'>5ème</p>
-                            <img :src="lordrak" class="players" />
+                            <img :src="lordrak" />
                             <p class="playerName">Lordrak</p>
                         </div>
                         <div class="player">
                             <p className='playerRank'>7ème</p>
-                            <img :src="snow" class="players" />
+                            <img :src="snow" />
                             <p class="playerName">Snow</p>
                         </div>
 
                         <div class="player">
                             <p className='playerRank'>7ème</p>
-                            <img :src="baylight" class="players" />
+                            <img :src="baylight" />
                             <p class="playerName">Baylight</p>
                         </div>
                     </div>
@@ -117,7 +118,7 @@ import mk1pro from '../../assets/mk1-pro-kompetition-2023-2024.webp'
 import Spinner from '../spinner/Spinner.vue';
 import Card from '../card/Card.vue';
 
-import { ref, watch, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
 import {CARD_QUERY} from "../../queries/queries"
 import albums from "../../queries/data.json"
@@ -173,11 +174,6 @@ function cardImages(id: string, venueAddress: string, image1: string, image2: st
         }
     }
 }
-
-// watch(users, value => {
-//     value.map((x: any) => console.log(x.isOnline))
-// })
-// watch(users, value => {console.log('users' + value)})
 </script>
 <style lang="scss">
 @import "./style.scss";
