@@ -48,3 +48,219 @@
     position: absolute;
     bottom: -5px;
 }
+
+/* ---------------------- */
+/*       RESULTATS        */
+/* ---------------------- */
+
+.pflex {
+    display: flex;
+    flex-direction: row;
+    margin: 0 17px;
+
+    .vic {
+        flex: 1 0 30%;
+        padding-right: 30px;
+
+        img {
+            width: 100%;
+            background: #efecdb;
+            padding: 1vh;
+            // box-shadow: 0 0 60px #f1c40f;
+            box-shadow: 0 0 40px rgba(241, 196, 15, 0.6);
+
+        }
+    }
+
+    .players {
+        flex: 1 0 70%;
+    }
+
+    @media screen and (min-width: $media-queries-desktop-xl) {
+        .vic {
+            flex: 1 0 20%;
+        }
+
+        .players {
+            flex: 1 0 80%;
+        }
+    }
+}
+
+.players {
+    display: flex;
+    // flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.player {
+    position: relative;
+    // margin: 0 4px 0 0;
+
+    img {
+        width: 100%;
+        margin: 0 0 15px;
+        display: block;
+        padding: 0.5vh;
+        background: #efecdb;
+        box-shadow: 0 10px 30px #5f2f1182;
+        // box-shadow: 0 0 60px rgba(242, 150, 39, 0.6);
+
+        // @media screen and (min-width: $media-queries-tablet-small) {
+        //     margin: 0 0 35px;
+        //     max-width: 215px;
+        // }
+
+        @media screen and (min-width: $media-queries-tablet) {
+            max-width: 230px;
+        }
+    }
+
+    .playerName {
+        writing-mode: vertical-rl;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 3px black;
+        margin: 0;
+        color: #fff;
+        font-size: 35px;
+        position: absolute;
+        top: 5px;
+        bottom: inherit;
+        left: inherit;
+        right: 0;
+
+        @media screen and (min-width: $media-queries-desktop-xl) {
+            // font-size: 30px;
+        }
+    }
+
+    &.silver {
+        img {
+            box-shadow: 0 0 30px rgba(236, 240, 241, 0.6);
+        }
+    }
+
+    &.bronze {
+        img {
+            box-shadow: 0 0 30px rgba(243, 156, 18, 0.6);
+
+        }
+    }
+}
+
+
+.player {
+    margin: 0 0 75px;
+
+    .playerRank {
+        text-align: center;
+        font-size: 40px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 7px rgb(0, 0, 0);
+        margin: 10px 0;
+        -webkit-text-stroke: 2px #fff;
+        color: rgb(55, 14, 14);
+        position: absolute;
+        top: -45px;
+        // bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    &.champ {
+
+        flex: 1 0 24%;
+        // padding-right: 30px;
+        margin-bottom: 30px;
+
+        img {
+            width: 100%;
+            max-width: 350px;
+            background: #efecdb;
+            padding: 1vh;
+            // margin-right: 65px;
+            // box-shadow: 0 0 60px #f1c40f;
+            box-shadow: 0 0 40px rgba(241, 196, 15, 0.6);
+            position: relative
+        }
+
+        p {
+            margin-left: 30px;
+            font-size: 8.5vw;
+            text-align: center;
+            text-transform: uppercase;
+
+            @media screen and (min-width: $media-queries-tablet-small) {
+                font-size: 7.5vw;
+            }
+
+            @media screen and (min-width: $media-queries-tablet-small) {
+                font-size: 5.5vw;
+            }
+
+            @media screen and (min-width: $media-queries-desktop) {
+                font-size: 4vw;
+            }
+
+            @media screen and (min-width: $media-queries-desktop-xl) {
+                font-size: 3.5vw;
+            }
+        }
+    }
+
+}
+
+
+.results {
+    .section {
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        @media screen and (min-width: $media-queries-tablet) {
+            flex-direction: row;
+        }
+
+        &.champ {
+            flex-direction: column;
+
+            @media screen and (min-width: $media-queries-desktop) {
+                flex-direction: row;
+            }
+        }
+    }
+
+    .congrats {
+        margin-left: 30px;
+        font-size: 7.5vw;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+
+        @media screen and (min-width: $media-queries-tablet-small) {
+            font-size: 4.5vw;
+        }
+
+        @media screen and (min-width: $media-queries-tablet) {
+            font-size: 3.4vw;
+        }
+
+        @media screen and (min-width: $media-queries-desktop) {
+            font-size: 2.2vw;
+        }
+    }
+
+    .prokompetition {
+        width: 100%;
+        max-width: 280px;
+        display: block;
+        margin: 0 auto 60px;
+
+        @media screen and (min-width: $media-queries-desktop) {
+            max-width: 250px;
+        }
+    }
+}
