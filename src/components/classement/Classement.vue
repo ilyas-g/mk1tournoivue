@@ -4,7 +4,7 @@
         <div class="classementCard">
           <div class="relative-content">
             <h3>Classement du championnat de France <span class="close" @click="$emit('toggleClassement')">&times;</span></h3>
-            <slot>dededededed</slot>
+            <slot></slot>
           </div>
         </div>
       </div>
