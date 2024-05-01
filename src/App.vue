@@ -5,7 +5,6 @@ import Header from './components/header/Header.vue'
 import Footer from './components/footer/Footer.vue'
 import Classement from './components/classement/Classement.vue'
 import Contact from './components/contactBlock/ContactBlock.vue'
-import NotFound from './components/notFound/NotFound.vue'
 import Modal from './components/modal/Modal.vue'
 
 import { ref, watch, computed } from 'vue'
