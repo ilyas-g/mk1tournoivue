@@ -8,7 +8,62 @@
             </div>
 
             <div v-if="isCollapsed === true">
-                <p>R2SUKTATTTTSSSS</p>
+                <div class="results">
+                    <div class="section champ">
+                        <div class="player champ">
+                            <img :src="akstar">
+                            <p class="playerName">Akstar</p>
+                        </div>
+                        <div>
+                            <p class="congrats">Félicitations à Akstar qui remporte le championnat de France de Mortal Kombat 1 !</p>
+                            <p class="congrats">IL REMPORTE ÉGALEMENT UN VOYAGE POUR LE LAST CHANCE QUALIFIER DU PRO TOUR DE MORTAL KOMBAT 1 organisé par NetherRealm Studios !</p>
+                            <img class='prokompetition' :src="mk1pro" />
+
+                        </div>
+                    </div>
+                    <h2 class="text-center">Classement des finalistes</h2>
+                    <div class="section">
+                        <div class="player silver">
+                            <p className='playerRank'>2ème</p>
+                            <img :src="deftat" />
+                            <p class="playerName">Deftat</p>
+                        </div>
+                        <div class="player bronze">
+                            <p className='playerRank'>3ème</p>
+                            <img :src="lechatnoir" class="players" />
+                            <p class="playerName">Le Chat Noir</p>
+                        </div>
+                        <div class="player">
+                            <p className='playerRank'>4ème</p>
+                            <img :src="ganondeurf" class="players" />
+                            <p class="playerName">Ganondeurf</p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="player">
+                            <p className='playerRank'>5ème</p>
+                            <img :src="rza" class="players" />
+                            <p class="playerName">RZA</p>
+                        </div>
+                        <div class="player">
+                            <p className='playerRank'>5ème</p>
+                            <img :src="lordrak" class="players" />
+                            <p class="playerName">Lordrak</p>
+                        </div>
+                        <div class="player">
+                            <p className='playerRank'>7ème</p>
+                            <img :src="snow" class="players" />
+                            <p class="playerName">Snow</p>
+                        </div>
+
+                        <div class="player">
+                            <p className='playerRank'>7ème</p>
+                            <img :src="baylight" class="players" />
+                            <p class="playerName">Baylight</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div v-else>
@@ -16,7 +71,6 @@
                 <div v-else-if="error">{{ error.message }}</div>
                 <div className="tournaments" v-else-if="users">
                     <div className="cards inline-itemList show-on-scroll is-visible" v-for="event of users" :key="event.id">
-
                         <Card
                         :title="event.name"
                         :linkPhotos="cardImages(event.id, event.tournament.venueAddress, event.tournament.images[0].url, event.tournament.images[1].url)"
@@ -32,7 +86,6 @@
                             </li>
                         </ul>
                         </Card>
-
                     </div>
                 </div>
             </div>
@@ -50,8 +103,20 @@ import pgw2023 from '../../assets/tournamentsImg/PGW-MASTER-EVENT+-SMALL.webp'
 import versusxperience from '../../assets/tournamentsImg/versusxperience.webp'
 import gamingrouen from '../../assets/tournamentsImg/gamingrouen.webp'
 
+import akstar from '../../assets/players/akstar.webp'
+import baylight from '../../assets/players/baylight.webp'
+import deftat from '../../assets/players/deftat.webp'
+import ganondeurf from '../../assets/players/ganondeurf.webp'
+import lechatnoir from '../../assets/players/lechatnoir.webp'
+import lordrak from '../../assets/players/lordrak.webp'
+import rza from '../../assets/players/rza.webp'
+import snow from '../../assets/players/snow.webp'
+
+import mk1pro from '../../assets/mk1-pro-kompetition-2023-2024.webp'
+
 import Spinner from '../spinner/Spinner.vue';
 import Card from '../card/Card.vue';
+
 import { ref, watch, computed } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
 import {CARD_QUERY} from "../../queries/queries"
@@ -60,7 +125,7 @@ import albums from "../../queries/data.json"
 const { result, loading, error } = useQuery(CARD_QUERY)
 
 /* GESTION DES ONGLETS */
-const isCollapsed = ref(false)
+const isCollapsed = ref(true)
 const toggleState = (toggleValue: boolean) => {
     isCollapsed.value = toggleValue;
 };
