@@ -1,9 +1,9 @@
 <template lang="">
     <footer id="footer">
         <div>
-            <div className="container">
+            <div class="container">
 
-                <ul className="footer-nav mb-4">
+                <ul class="footer-nav mb-4">
                     <li><a href="/#event-section">Présentation</a>
                     </li>
                     <li><a href="/#schedule">Étapes</a>
@@ -15,41 +15,41 @@
                 </ul>
 
                 <div>
-                    <div className="follow-us">
-                        <h4 className="text-center">Suivez NSXC</h4>
-                        <p className="text-center">
-                            <a href="https://twitter.com/_NSxC" target="_blank" className="ml-1 mr-1" aria-label="Twitter NSxC"><span className="icon-square-twitter"></span></a>
+                    <div class="follow-us">
+                        <h4 class="text-center">Suivez NSXC</h4>
+                        <p class="text-center">
+                            <a href="https://twitter.com/_NSxC" target="_blank" class="ml-1 mr-1" aria-label="Twitter NSxC"><span class="icon-square-twitter"></span></a>
                         </p>
                     </div>
                 </div>
                 <div>
-                    <div className="follow-us">
-                        <h4 className="text-center">Suivez Warner Bros. Games France</h4>
-                        <p className="text-center">
-                            <a href="https://www.youtube.com/@warnerbros.gamesfrance1763" target="_blank" className="mr-1" aria-label="Chaîne Youtube de Warner Bros Games France"><span className="icon-youtube"></span></a>
-                            <a href="https://twitter.com/wbgamesfr" target="_blank" className="ml-1 mr-1" aria-label="Twitter Warner Bros Games France"><span className="icon-square-twitter"></span></a>
-                            <a href="https://www.instagram.com/wbgamesfr/" target="_blank" className="ml-1" aria-label="Instagram Warner Bros Games France"><span className="icon-instagram"></span></a>
+                    <div class="follow-us">
+                        <h4 class="text-center">Suivez Warner Bros. Games France</h4>
+                        <p class="text-center">
+                            <a href="https://www.youtube.com/@warnerbros.gamesfrance1763" target="_blank" class="mr-1" aria-label="Chaîne Youtube de Warner Bros Games France"><span class="icon-youtube"></span></a>
+                            <a href="https://twitter.com/wbgamesfr" target="_blank" class="ml-1 mr-1" aria-label="Twitter Warner Bros Games France"><span class="icon-square-twitter"></span></a>
+                            <a href="https://www.instagram.com/wbgamesfr/" target="_blank" class="ml-1" aria-label="Instagram Warner Bros Games France"><span class="icon-instagram"></span></a>
                         </p>
                     </div>
                 </div>
                 <div>
-                    <div className="follow-us">
-                        <h4 className="text-center">Suivez MK France</h4>
-                        <p className="text-center">
-                            <a href="https://discord.gg/p5Ubc3r" target="_blank" className="ml-1" aria-label="Discord Mortal Kombat France"><span className="icon-discord-1"></span></a>
-                            <a href="https://twitter.com/MK1_FRANCE" target="_blank" className="mr-1" aria-label="Twitter Mortal Kombat France"><span className="icon-square-twitter"></span></a>
+                    <div class="follow-us">
+                        <h4 class="text-center">Suivez MK France</h4>
+                        <p class="text-center">
+                            <a href="https://discord.gg/p5Ubc3r" target="_blank" class="ml-1" aria-label="Discord Mortal Kombat France"><span class="icon-discord-1"></span></a>
+                            <a href="https://twitter.com/MK1_FRANCE" target="_blank" class="mr-1" aria-label="Twitter Mortal Kombat France"><span class="icon-square-twitter"></span></a>
                         </p>
                     </div>
                 </div>
             </div>
             <div>
-                <div className="follow-us text-center">
-                    <img :src="NSXCLogo" className="mr-5 ml-5" alt="NSXC" />
-                    <img :src="YuzuLogo" className="ml-5 mr-5" alt="Yuzu Gaming" />
+                <div class="follow-us text-center">
+                    <img :src="NSXCLogo" class="mr-5 ml-5" alt="NSXC" />
+                    <img :src="YuzuLogo" class="ml-5 mr-5" alt="Yuzu Gaming" />
                 </div>
             </div>
         </div>
-        <div className="footer-credits">
+        <div class="footer-credits">
             Mortal Kombat - Championnat de France © <a href="https://yuzugaming.com" target="_blank">Yuzu Gaming</a> - 
             Site conçu et réalisé par <a href="https://twitter.com/iamarktall" target="_blank">Arktall
                 (@iamarktall)</a>

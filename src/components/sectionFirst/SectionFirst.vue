@@ -1,20 +1,27 @@
 <template>
-    <section id="home-section" className="bg-fixed bg-cover dark-section">
+    <section id="home-section" class="bg-fixed bg-cover dark-section">
         <video :src="videoBg" autoPlay loop muted />
-        <div className="content-video">
-            <div className="bg-overlay bg-layer"></div>
-            <div className="home-content">
+        <div class="content-video">
+            <div class="bg-overlay bg-layer"></div>
+            <div class="home-content">
                 <div>
-                    <div id="ope-logo" className="mb-4">
+                    <div id="ope-logo" class="mb-4">
                         <img :src="MK1Logo" alt="Logo Mortal Kombat 1" />
                     </div>
-                    <div className="home-event-date">
+                    <div class="home-event-date">
                         Championnat de France
                     </div>
-                    <div className="home-event-buttons">
-                        <a href="/#event-section" className="btn-ope">Présentation <span className="icon-chevron-down-solid-1"></span></a>
-                        <a href="/#tournaments" className="btn-ope special">Tournois <span className="icon-chevron-down-solid-1" aria-hidden="true"></span></a>
-                        <button className="btn-ope video btf-btn" @click="$emit('toggleModal')">Voir le trailer</button>
+                    <div class="home-event-buttons">
+                        <a href="/#event-section" class="btn-ope">Présentation <span class="icon-chevron-down-solid-1"></span></a>
+                        <a href="/#tournaments" class="btn-ope special">Tournois <span class="icon-chevron-down-solid-1" aria-hidden="true"></span></a>
+                        
+                        <template v-if="!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(isMobile)">
+                            <a class="btn-ope video btf-btn" href="https://www.youtube.com/watch?v=6mFKuKw4hKA" target="_blank">Voir le trailer</a>
+                        </template>
+                        <template v-else>
+                            <button class="btn-ope video btf-btn" @click="$emit('toggleModal')">Voir le trailer</button>
+                        </template>
+
                     </div>
                 </div>
             </div>
@@ -24,6 +31,8 @@
 <script setup lang="ts">
 import MK1Logo from '../../assets/mk1-logo.webp'
 import videoBg from '../../assets/mkchampionshipvideo.mp4'
+
+const isMobile = navigator.userAgent
 </script>
 <style lang="scss">
 @import "../../variables";

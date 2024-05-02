@@ -1,6 +1,6 @@
 <template lang="">
-    <div className="horiz-rule horiz-rule-1 ">
-        <div className="bar"></div>
+    <div class="horiz-rule horiz-rule-1 ">
+        <div class="bar"></div>
     </div>
 </template>
 
