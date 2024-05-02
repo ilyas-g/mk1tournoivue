@@ -85,13 +85,22 @@ import videoBg from '../../assets/mkchampionshipvideo.mp4'
     }
 
     &::before {
-        left: -50px;
+        left: 0px;
+
         background: linear-gradient(to left, #fff 0, rgba(255, 255, 255, 0) 100%);
+
+        @media only screen and (min-width: $media-queries-tablet-small) {
+            left: -50px;
+        }
     }
 
     &::after {
-        right: -50px;
+        right: 0px;
         background: linear-gradient(to right, #fff 0, rgba(255, 255, 255, 0) 100%);
+
+        @media only screen and (min-width: $media-queries-tablet-small) {
+            right: -50px;
+        }
     }
 }
 
@@ -103,7 +112,6 @@ import videoBg from '../../assets/mkchampionshipvideo.mp4'
 
     @media only screen and (max-width: $media-queries-tablet) {
         margin-bottom: 10px;
-
     }
 }
 

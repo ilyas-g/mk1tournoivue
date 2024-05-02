@@ -4,26 +4,18 @@
             <h2 className="text-center">Tournois</h2>
             <div className='subtitles'>
                 <h3 class="subtitle" @click="toggleState(true)" :class="isCollapsed === true && 'activeLang' ">Résultats finaux</h3>
-                <h3 class="subtitle" @click="toggleState(false)" :class="isCollapsed === false && 'activeLang' ">Tournois</h3>
+                <h3 class="subtitle" @click="toggleState(false)" :class="isCollapsed === false && 'activeLang' ">Tournois passés</h3>
             </div>
 
             <div v-if="isCollapsed === true">
                 <div class="results">
-                    <div class="section champ">
-                        <div class="player champ">
+                    <h3 class="congrats">Félicitations à Akstar qui remporte le championnat de France de Mortal Kombat 1 !</h3>
+                    <div class="section">
+                        <div class="player gold">
                             <p className='playerRank'>1er</p>
                             <img :src="akstar">
                             <p class="playerName">Akstar</p>
                         </div>
-                        <div>
-                            <p class="congrats">Félicitations à Akstar qui remporte le championnat de France de Mortal Kombat 1 !</p>
-                            <p class="congrats">IL REMPORTE ÉGALEMENT UN VOYAGE POUR LE LAST CHANCE QUALIFIER DU PRO TOUR DE MORTAL KOMBAT 1 organisé par NetherRealm Studios !</p>
-                            <img class='prokompetition' :src="mk1pro" />
-
-                        </div>
-                    </div>
-                    <h2 class="text-center">Classement des finalistes</h2>
-                    <div class="section">
                         <div class="player silver">
                             <p className='playerRank'>2ème</p>
                             <img :src="deftat" />
