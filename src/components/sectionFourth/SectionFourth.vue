@@ -1,8 +1,8 @@
 <template>
-    <section id="tournaments" className="black-section">
-        <div className="container relative-content">
-            <h2 className="text-center">Tournois</h2>
-            <div className='subtitles'>
+    <section id="tournaments" class="black-section">
+        <div class="container relative-content">
+            <h2 class="text-center">Tournois</h2>
+            <div class='subtitles'>
                 <h3 class="subtitle" @click="toggleState(true)" :class="isCollapsed === true && 'activeLang' ">Résultats finaux</h3>
                 <h3 class="subtitle" @click="toggleState(false)" :class="isCollapsed === false && 'activeLang' ">Tournois passés</h3>
             </div>
@@ -12,22 +12,22 @@
                     <h3 class="congrats">Félicitations à Akstar qui remporte le championnat de France de Mortal Kombat 1 !</h3>
                     <div class="section">
                         <div class="player gold">
-                            <p className='playerRank'>1er</p>
+                            <p class='playerRank'>1er</p>
                             <img :src="akstar">
                             <p class="playerName">Akstar</p>
                         </div>
                         <div class="player silver">
-                            <p className='playerRank'>2ème</p>
+                            <p class='playerRank'>2ème</p>
                             <img :src="deftat" />
                             <p class="playerName">Deftat</p>
                         </div>
                         <div class="player bronze">
-                            <p className='playerRank'>3ème</p>
+                            <p class='playerRank'>3ème</p>
                             <img :src="lechatnoir" />
                             <p class="playerName">Le Chat Noir</p>
                         </div>
                         <div class="player">
-                            <p className='playerRank'>4ème</p>
+                            <p class='playerRank'>4ème</p>
                             <img :src="ganondeurf" />
                             <p class="playerName">Ganondeurf</p>
                         </div>
@@ -35,23 +35,23 @@
 
                     <div class="section">
                         <div class="player">
-                            <p className='playerRank'>5ème</p>
+                            <p class='playerRank'>5ème</p>
                             <img :src="rza" />
                             <p class="playerName">RZA</p>
                         </div>
                         <div class="player">
-                            <p className='playerRank'>5ème</p>
+                            <p class='playerRank'>5ème</p>
                             <img :src="lordrak" />
                             <p class="playerName">Lordrak</p>
                         </div>
                         <div class="player">
-                            <p className='playerRank'>7ème</p>
+                            <p class='playerRank'>7ème</p>
                             <img :src="snow" />
                             <p class="playerName">Snow</p>
                         </div>
 
                         <div class="player">
-                            <p className='playerRank'>7ème</p>
+                            <p class='playerRank'>7ème</p>
                             <img :src="baylight" />
                             <p class="playerName">Baylight</p>
                         </div>
@@ -62,8 +62,8 @@
             <div v-else>
                 <div v-if="loading"><Spinner/></div>
                 <div v-else-if="error">{{ error.message }}</div>
-                <div className="tournaments" v-else-if="users">
-                    <div className="cards inline-itemList show-on-scroll is-visible" v-for="event of users" :key="event.id">
+                <div class="tournaments" v-else-if="users">
+                    <div class="cards inline-itemList show-on-scroll is-visible" v-for="event of users" :key="event.id">
                         <Card
                         :title="event.name"
                         :linkPhotos="cardImages(event.id, event.tournament.venueAddress, event.tournament.images[0].url, event.tournament.images[1].url)"

@@ -49,7 +49,8 @@ const participants = computed(() => result.value?.league.standings.nodes ?? [])
 </script>
 
 <template>
-  <Header 
+  <Header
+  link="https://www.youtube.com/watch?v=6mFKuKw4hKA"
   @toggle-contact="toggleContact(true)" 
   @toggle-classement="toggleClassement(true)" 
   @toggle-modal="toggleModal(true)" />
@@ -66,8 +67,8 @@ const participants = computed(() => result.value?.league.standings.nodes ?? [])
     <div v-if="loading"><Spinner/></div>
     <div v-else-if="error">{{ error.message }}</div>
     <Classement v-else @toggle-classement="toggleClassement(false)">
-			<div className="responsive-table-line mb-5">
-				<table :border="1" cellPadding="1" cellSpacing="1" className="table table-body-center table-bordered table-condensed">
+			<div class="responsive-table-line mb-5">
+				<table :border="1" cellPadding="1" cellSpacing="1" class="table table-body-center table-bordered table-condensed">
 					<thead>
 						<tr>
 							<th><span>Rang</span></th>

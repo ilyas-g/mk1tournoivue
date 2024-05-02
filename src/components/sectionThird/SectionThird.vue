@@ -1,14 +1,14 @@
 <template lang="">
-    <section id="schedule" className="bg-fixed bg-cover">
-        <div className="bg-layer"></div>
+    <section id="schedule" class="bg-fixed bg-cover">
+        <div class="bg-layer"></div>
 
-        <h2 className="text-center relative-content">Étapes</h2>
-        <div className="container relative-content">
+        <h2 class="text-center relative-content">Étapes</h2>
+        <div class="container relative-content">
 
-            <div className="text-center">
+            <div class="text-center">
                 <h2>Master Event +</h2>
-                <p className="master-plus">Le MASTER EVENT + est l'unique événement de sa catégorie. Une étape majeure du championnat qui donnera un avantage considérable dans le classement général.</p>
-                <RouterLink to="/rules" className="btn-ope special mt-3 mx-auto">Voir le règlement<span className="icon-chevron-down-solid-1" aria-hidden="true"></span></RouterLink>
+                <p class="master-plus">Le MASTER EVENT + est l'unique événement de sa catégorie. Une étape majeure du championnat qui donnera un avantage considérable dans le classement général.</p>
+                <RouterLink to="/rules" class="btn-ope special mt-3 mx-auto">Voir le règlement<span class="icon-chevron-down-solid-1" aria-hidden="true"></span></RouterLink>
             </div>
 
         </div>

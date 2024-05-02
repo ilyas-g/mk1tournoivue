@@ -1,8 +1,8 @@
 <template>
-        <div id="modal-container" className="five">
-            <div className="modal-background">
-                <div className="modal">
-                    <span className="close" @click="$emit('toggleModal')">&times;</span>
+        <div id="modal-container" class="five">
+            <div class="modal-background">
+                <div class="modal">
+                    <span class="close" @click="$emit('toggleModal')">&times;</span>
                     <slot>dededededededefrfghhggnhgtgss</slot>
                 </div>
             </div>
