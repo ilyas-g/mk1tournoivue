@@ -15,7 +15,7 @@
                         <a href="/#event-section" class="btn-ope">Présentation <span class="icon-chevron-down-solid-1"></span></a>
                         <a href="/#tournaments" class="btn-ope special">Tournois <span class="icon-chevron-down-solid-1" aria-hidden="true"></span></a>
                         
-                        <template v-if="!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(isMobile)">
+                        <template v-if="/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(isMobile)">
                             <a class="btn-ope video btf-btn" href="https://www.youtube.com/watch?v=6mFKuKw4hKA" target="_blank">Voir le trailer</a>
                         </template>
                         <template v-else>
