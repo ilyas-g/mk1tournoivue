@@ -6,6 +6,7 @@
 
     .subtitles {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
         background-color: rgba(0, 0, 0, 0.7);
         border: 1px solid $border;
@@ -14,6 +15,8 @@
         .subtitle {
             margin: 0;
             transition: all 0.25s ease 0s;
+            text-align: center;
+            padding: 0 15px;
 
             &:hover {
                 color: #d99a2b;
@@ -22,7 +25,6 @@
 
             &.activeLang {
                 font-weight: 700;
-                // text-decoration: underline;
             }
         }
     }
@@ -30,7 +32,6 @@
 
 .tournaments {
     display: flex;
-    // flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
 }
@@ -83,6 +84,13 @@
         right: 0;
     }
 
+    &.gold {
+        img {
+            padding: 1vh;
+            box-shadow: 0 0 40px rgba(241, 196, 15, 0.6);
+        }
+    }
+
     &.silver {
         img {
             box-shadow: 0 0 30px rgba(236, 240, 241, 0.6);
@@ -113,43 +121,6 @@
         left: 0;
         right: 0;
     }
-
-    &.champ {
-        flex: 1 0 24%;
-        margin-bottom: 30px;
-
-        img {
-            width: 100%;
-            max-width: 350px;
-            background: #efecdb;
-            padding: 1vh;
-            box-shadow: 0 0 40px rgba(241, 196, 15, 0.6);
-        }
-
-        p {
-            margin-left: 30px;
-            font-size: 8.5vw;
-            text-align: center;
-            text-transform: uppercase;
-
-            @media screen and (min-width: $media-queries-tablet-small) {
-                font-size: 7.5vw;
-            }
-
-            @media screen and (min-width: $media-queries-tablet-small) {
-                font-size: 5.5vw;
-            }
-
-            @media screen and (min-width: $media-queries-desktop) {
-                font-size: 4vw;
-            }
-
-            @media screen and (min-width: $media-queries-desktop-xl) {
-                font-size: 3.5vw;
-            }
-        }
-    }
-
 }
 
 .results {
@@ -174,7 +145,7 @@
     }
 
     .congrats {
-        margin-left: 30px;
+        margin-bottom: 90px;
         font-size: 7.5vw;
         font-weight: 700;
         text-align: center;
@@ -189,18 +160,7 @@
         }
 
         @media screen and (min-width: $media-queries-desktop) {
-            font-size: 2.2vw;
-        }
-    }
-
-    .prokompetition {
-        width: 100%;
-        max-width: 280px;
-        display: block;
-        margin: 0 auto 60px;
-
-        @media screen and (min-width: $media-queries-desktop) {
-            max-width: 250px;
+            font-size: 2.5vw;
         }
     }
 }
